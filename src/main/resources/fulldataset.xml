@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <SQLITE_SEQUENCE/>
+  <BRUKER brukernavn="jantl" passord="secret777" navn="Jan T. Loven" erAdmin="1"/>
+  <BRUKER brukernavn="perku" passord="hemmelig" navn="Per Kusjon" erAdmin="0"/>
+  <BRUKER brukernavn="tinem" passord="passordet" navn="Tine Melch" erAdmin="1"/>
+  <BRUKER brukernavn="tomm" passord="sosecret" navn="Tomm Hendt" erAdmin="0"/>
+  <HUSKELAPP tittel="Enda en huskelapp" innhold=" Denne her skal v&#230;re offentlig!" erUtfort="0" erOffentlig="1" brukernavn="tinem" timestamp="1309986341201"/>
+  <HUSKELAPP tittel="Kredittkortinfo" innhold="Kredittkortet mitt fra Visa, kortnummer 2234 6511 8787 3310, utl&#65533;op 11/12 og sikkerhetsnummer 933, fortelles aldri til noen, husk makulering innen Mandag" erUtfort="0" erOffentlig="0" brukernavn="perku" timestamp="1"/>
+  <HUSKELAPP tittel="Offentlig huskelapp!" innhold="Tomm Hendt melder at alle kan bruke huskelappsystemet slik de vil." erUtfort="0" erOffentlig="1" brukernavn="tomm" timestamp="1"/>
+  <HUSKELAPP tittel="Pasientdata" innhold="Alle pasienter med alvorlige sykdommer, slik som Hans Dump og Anna Nass skal holdes strengt hemmelig. " erUtfort="0" erOffentlig="0" brukernavn="tinem" timestamp="1"/>
+</dataset>
