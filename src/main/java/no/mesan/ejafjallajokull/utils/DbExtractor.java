@@ -28,7 +28,7 @@ public class DbExtractor {
 
         // Perform full database export
         IDataSet fullDataSet = connection.createDataSet();
-        FlatXmlDataSet.write(fullDataSet, new FileOutputStream("fulldataset.xml"));
+        FlatXmlDataSet.write(fullDataSet, new FileOutputStream("src/main/resources/fulldataset.xml"));
  	}
 
 }

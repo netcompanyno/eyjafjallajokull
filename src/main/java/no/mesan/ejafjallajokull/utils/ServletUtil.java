@@ -31,7 +31,7 @@ public class ServletUtil {
 		  }
 		  
 		try {
-			con = DriverManager.getConnection("jdbc:sqlite:D:\\secret.db");
+			con = DriverManager.getConnection("jdbc:sqlite:src/main/resources/secret.db");
 		} catch (SQLException e) {
 			System.out.println("JDBC fikk ikke kontakt med databasen : " + e.getMessage());
 		}
