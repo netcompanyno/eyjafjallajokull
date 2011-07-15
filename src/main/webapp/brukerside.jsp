@@ -14,9 +14,14 @@
 </head>
 <body>
 	<div class="greyboxBruker">
-		Velkommen,
-		<%=session.getAttribute("navn") %>
-		! <br /> <br /> <br /> Lage ny huskelapp:
+		<div class="welcomeMessage">
+			Velkommen,
+			<%=session.getAttribute("navn") %>!
+		</div>
+		<div class="logoutMessage">
+			<a href="StartServlet">Logg ut</a>
+		</div>
+		 <br /> <br /> <br /> Lage ny huskelapp:
 		<p>
 		<div align="center" class="nyhuskelapp">
 			<form method="POST" action="HuskelappAdmServlet">
@@ -28,7 +33,7 @@
 					</tr>
 					<tr>
 						<td style="vertical-align: top">Innhold:</td>
-						<td><textarea rows="5" cols="13" name="innhold"> </textarea>
+						<td><textarea rows="10" cols="50" name="innhold"> </textarea>
 						</td>
 					</tr>
 					<tr>

@@ -5,19 +5,19 @@ package no.mesan.ejafjallajokull.pojo;
 
 /**
  * @author oleh
- *
+ * 
  */
 public class Huskelapp {
-	
+
 	private String tittel;
 	private String innhold;
 	private String brukernavn;
 	private long timestamp;
-	
-	public Huskelapp(){
+
+	public Huskelapp() {
 		super();
 	}
-	
+
 	public Huskelapp(String tittel, String innhold, String brukernavn, long timestamp) {
 		super();
 		this.tittel = tittel;
@@ -25,27 +25,30 @@ public class Huskelapp {
 		this.brukernavn = brukernavn;
 		this.timestamp = timestamp;
 	}
-	
-	
-	
+
 	/**
-	 * @param tittel the tittel to set
+	 * @param tittel
+	 *            the tittel to set
 	 */
 	public void setTittel(String tittel) {
 		this.tittel = tittel;
 	}
+
 	/**
 	 * @return the tittel
 	 */
 	public String getTittel() {
 		return tittel;
 	}
+
 	/**
-	 * @param innhold the innhold to set
+	 * @param innhold
+	 *            the innhold to set
 	 */
 	public void setInnhold(String innhold) {
 		this.innhold = innhold;
 	}
+
 	/**
 	 * @return the innhold
 	 */
@@ -54,7 +57,8 @@ public class Huskelapp {
 	}
 
 	/**
-	 * @param brukernavn the brukernavn to set
+	 * @param brukernavn
+	 *            the brukernavn to set
 	 */
 	public void setBrukernavn(String brukernavn) {
 		this.brukernavn = brukernavn;
@@ -68,7 +72,8 @@ public class Huskelapp {
 	}
 
 	/**
-	 * @param timestamp the timestamp to set
+	 * @param timestamp
+	 *            the timestamp to set
 	 */
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
@@ -80,6 +85,5 @@ public class Huskelapp {
 	public long getTimestamp() {
 		return timestamp;
 	}
-	
 
 }

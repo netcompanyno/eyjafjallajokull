@@ -26,7 +26,7 @@ import no.mesan.ejafjallajokull.utils.ServletUtil;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection con = null;;
-	private Statement ps;
+	private Statement stm;
 	private ResultSet rs;
        
     /**
@@ -50,10 +50,10 @@ public class LoginServlet extends HttpServlet {
 		con = ServletUtil.initializeDBCon();
 		//hvis ikke innlogget, finn bruker, finn huskelapper.
 		if( request.getSession().getAttribute("loggedIn") == null || !((Boolean)request.getSession().getAttribute("loggedIn")).booleanValue() ){
-			String SQL = "SELECT * FROM BRUKER WHERE BRUKERNAVN='" + brukerid + "' AND PASSORD='" + passord + "'";
+			String sql = "SELECT * FROM BRUKER WHERE BRUKERNAVN='" + brukerid + "' AND PASSORD='" + passord + "'";
 			try {
-				ps = con.createStatement();
-				rs = ps.executeQuery(SQL);
+				stm = con.createStatement();
+				rs = stm.executeQuery(sql);
 				if (rs.next()) {
 					out.println("Bruker " + rs.getString("navn") + " er logget inn, gratulerer!");
 					request.getSession().setAttribute("navn", rs.getString("navn"));
@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 		String nextJSP = "/brukerside.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		dispatcher.forward(request,response);
-		ServletUtil.CleanupDBConn(rs, con);
+		ServletUtil.cleanupDBConn(rs, con);
 	}
 	
 	private Boolean convertIntToBoolean(int int1) {
@@ -107,8 +107,8 @@ public class LoginServlet extends HttpServlet {
 			SQL = "SELECT TITTEL, INNHOLD, ERUTFORT, EROFFENTLIG, H.BRUKERNAVN, TIMESTAMP, B.BRUKERNAVN AS BRUKERID FROM HUSKELAPP H, BRUKER B WHERE H.BRUKERNAVN='" + brukerid + "' and BRUKERID='" + brukerid + "' ORDER BY TIMESTAMP DESC";
 		}
 		try {
-			ps = con.createStatement();
-			rs = ps.executeQuery(SQL);
+			stm = con.createStatement();
+			rs = stm.executeQuery(SQL);
 			while (rs.next()) {
 				Huskelapp huskelapp = new Huskelapp(rs.getString("tittel"),rs.getString("innhold"),rs.getString("brukernavn"),rs.getLong("timestamp"));
 				huskelappListe.add(huskelapp);

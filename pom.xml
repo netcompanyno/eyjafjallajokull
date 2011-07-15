@@ -7,33 +7,47 @@
 	<packaging>war</packaging>
 	<name>ejafjallajokull</name>
 
-	<dependencies>
+	<properties>
+		<jetty.version>7.4.4.v20110707</jetty.version>
+	</properties>
 
+	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlet</artifactId>
-			<version>7.4.4.v20110707</version>
+			<version>${jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jsp-2.1</artifactId>
-			<version>7.4.4.v20110707</version>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.osgi</groupId>
+			<artifactId>jetty-osgi-boot-jsp</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-deploy</artifactId>
+			<version>${jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
-			<version>7.4.4.v20110707</version>
+			<version>${jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
-		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.servlet</groupId> -->
+<!-- 			<artifactId>jstl</artifactId> -->
+<!-- 			<version>1.2</version> -->
+<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>org.xerial</groupId>

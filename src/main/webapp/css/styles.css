@@ -1,84 +1,96 @@
-.greyboxLogin{
-	background-color:#EEEEEE;
-	width:280px;
-	margin-top:200px;
-	margin-left:auto;
-	margin-right:auto;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:0px;
-	padding-right:0px;
+.welcomeMessage {
+	position: relative; 
+	float: left;
+}
+
+.logoutMessage {
+	position: relative;
+	float: right;
+	margin-right: 5px;
+}
+
+.greyboxLogin {
+	background-color: #EEEEEE;
+	width: 280px;
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
 	border: 1px solid #000;
 }
 
-.greyboxError{
-	text-align:center;
-	background-color:#EEEEEE;
-	width:280px;
-	margin-top:200px;
-	margin-left:auto;
-	margin-right:auto;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:0px;
-	padding-right:0px;
+.greyboxError {
+	text-align: center;
+	background-color: #EEEEEE;
+	width: 280px;
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
 	border: 1px solid #000;
 }
 
-.greyboxBruker{
-	background-color:#EEEEEE;
-	width:480px;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:0px;
-	padding-right:0px;
+.greyboxBruker {
+	background-color: #EEEEEE;
+	width: 800px; padding-top : 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: auto;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border: 1px solid #000;
+	padding-top: 10px;
+}
+
+.nyhuskelapp {
+	background-color: #FFD700;
+	width: 600px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
 	margin: auto;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
 	border: 1px solid #000;
 }
 
-.nyhuskelapp{
-	background-color:#FFD700;
-	width:250px;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:0px;
-	padding-right:0px;
+.huskelapp {
+	background-color: #eee600;
+	width: 600px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
 	margin: auto;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
 	border: 1px solid #000;
 }
 
-.huskelapp{
-	background-color:#eee600;
-	width:200px;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:0px;
-	padding-right:0px;
-	margin: auto;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	border: 1px solid #000;
-}
-
-.huskelappHeader{
-	background-color:#FFA700;
+.huskelappHeader {
+	background-color: #FFA700;
 	border: 1px solid #000;
 	font-weight: bold;
 }
 
-.huskelappBody{
-	background-color:#FFD700;
+.huskelappBody {
+	background-color: #FFD700;
 	border: 1px solid #000;
 	font-weight: normal;
 }
-.noborderTable{
-	border:none;
+
+.noborderTable {
+	border: none;
 }
