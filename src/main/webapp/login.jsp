@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div align="center" class="greyboxLogin" > 
-			<form method="POST" action="LoginServlet">
+			<form method="POST" action="login">
 				<table class="noborderTable">
 					<tr>
 						<td>Brukernavn: </td>
@@ -24,7 +24,7 @@
 						<td><input type="password" name="passord" ></td>
 					</tr>
 					<tr>
-						<td align="left" ><a href="NyBrukerServlet">Registrer ny</a></td>
+						<td align="left" ><a href="nybruker">Registrer ny</a></td>
 						<td align="right" ><input type="submit"  value="Logg inn"></td>
 					</tr>
 				</table>

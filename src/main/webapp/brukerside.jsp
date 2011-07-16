@@ -19,12 +19,12 @@
 			<%=session.getAttribute("navn") %>!
 		</div>
 		<div class="logoutMessage">
-			<a href="StartServlet">Logg ut</a>
+			<a href="index.jsp">Logg ut</a>
 		</div>
 		 <br /> <br /> <br /> Lage ny huskelapp:
 		<p>
 		<div align="center" class="nyhuskelapp">
-			<form method="POST" action="HuskelappAdmServlet">
+			<form method="POST" action=huskelapp>
 				<table class="noborderTable">
 					<tr>
 						<td>Tittel:</td>
@@ -73,7 +73,7 @@
 			<% 
 						out.print("<div class='huskelappHeader'>");
 				%>
-			<form method="POST" action="HuskelappAdmServlet">
+			<form method="POST" action="huskelapp">
 				<input type="submit" value="x">
 				<%=h.getTittel() %>
 				<input type="hidden" id="tittel" value="<%=h.getTittel()%>"

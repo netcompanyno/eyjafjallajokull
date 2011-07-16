@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="refresh" content="0;url=StartServlet">
+		<meta http-equiv="refresh" content="0;url=start">
 		<link rel="stylesheet" href="css/styles.css" type="text/css"/>
 	<title>Index</title>
 	</head>

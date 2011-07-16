@@ -52,7 +52,7 @@ public class HuskelappAdmServlet extends HttpServlet {
 		}
 		// Loginservlet henter ut oppdatert huskelappliste, forwarder.
 		if (dbOperationsOk) {
-			String nextJSP = "/LoginServlet";
+			String nextJSP = "/login";
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 			dispatcher.forward(request, response);
 		}

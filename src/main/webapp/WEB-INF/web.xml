@@ -12,7 +12,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>HuskelappAdmServlet</servlet-name>
-    <url-pattern>/HuskelappAdmServlet</url-pattern>
+    <url-pattern>/huskelapp</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -22,7 +22,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -38,10 +38,10 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>StartServlet</servlet-name>
-    <url-pattern>/StartServlet</url-pattern>
+    <url-pattern>/start</url-pattern>
   </servlet-mapping>
    <servlet-mapping>
     <servlet-name>NyBrukerServlet</servlet-name>
-    <url-pattern>/NyBrukerServlet</url-pattern>
+    <url-pattern>/nybruker</url-pattern>
   </servlet-mapping>
 </web-app>

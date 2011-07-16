@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div align="center" class="greyboxLogin" > 
-			<form method="POST" action="NyBrukerServlet">
+			<form method="POST" action="nybruker">
 				<table class="noborderTable">
 					<tr>
 						<td>Navn: </td>
@@ -24,8 +24,7 @@
 						<td><input type="password" name="passord" ></td>
 					</tr>
 					<tr>
-						<td align="left" ><a href="/login.jsp">Registrer ny</a></td>
-						<td align="right" ><input type="submit"  value="Registrer"></td>
+						<td align="right" colspan="2" ><input type="submit"  value="Registrer"></td>
 					</tr>
 				</table>
 			</form>
