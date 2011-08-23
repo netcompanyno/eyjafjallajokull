@@ -30,6 +30,17 @@
     <servlet-name>StartServlet</servlet-name>
     <servlet-class>no.mesan.ejafjallajokull.servlets.StartServlet</servlet-class>
   </servlet>
+   <servlet>
+    <description></description>
+    <display-name>FakeServlet</display-name>
+    <servlet-name>FakeServlet</servlet-name>
+    <servlet-class>no.mesan.ejafjallajokull.servlets.FakeTargetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FakeServlet</servlet-name>
+  	<url-pattern>/fakeTarget</url-pattern>
+  </servlet-mapping>
+  
     <servlet>
     <description></description>
     <display-name>NyBrukerServlet</display-name>
