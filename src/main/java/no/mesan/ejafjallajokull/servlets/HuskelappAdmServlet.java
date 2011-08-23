@@ -78,11 +78,14 @@ public class HuskelappAdmServlet extends HttpServlet {
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(sql);
-		} catch (Exception e) {
+			
+		} catch (Throwable e) {
 			e.printStackTrace();
 			request.setAttribute("feilmelding", "Kunne ikke sette inn huskelapp : " + e.getMessage());
 			ServletUtil.gotoFeilSide(request, response);
 			return false;
+		} finally{
+			ServletUtil.cleanupDBConn(con);
 		}
 		return true;
 	}
@@ -107,6 +110,8 @@ public class HuskelappAdmServlet extends HttpServlet {
 			request.setAttribute("feilmelding", "Kunne ikke slette huskelapp : " + e.getMessage());
 			ServletUtil.gotoFeilSide(request, response);
 			return false;
+		} finally{
+			ServletUtil.cleanupDBConn(con);
 		}
 		return true;
 	}

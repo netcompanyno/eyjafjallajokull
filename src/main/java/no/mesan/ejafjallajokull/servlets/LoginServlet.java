@@ -35,7 +35,6 @@ public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();
         con = ServletUtil.initializeDBCon();
-        
     }
 
 	
@@ -43,7 +42,6 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		PrintWriter out = response.getWriter();
 		String brukerid = request.getParameter("brukerid");
 		String passord = request.getParameter("passord");
@@ -87,6 +85,7 @@ public class LoginServlet extends HttpServlet {
 		if(int1 == 1){
 			return new Boolean(true);
 		};
+		
 		return new Boolean(false);
 	}
 
