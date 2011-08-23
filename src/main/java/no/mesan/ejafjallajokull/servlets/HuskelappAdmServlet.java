@@ -84,9 +84,7 @@ public class HuskelappAdmServlet extends HttpServlet {
 			request.setAttribute("feilmelding", "Kunne ikke sette inn huskelapp : " + e.getMessage());
 			ServletUtil.gotoFeilSide(request, response);
 			return false;
-		} finally{
-			ServletUtil.cleanupDBConn(con);
-		}
+		} 
 		return true;
 	}
 
