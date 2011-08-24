@@ -47,7 +47,7 @@ public class NyBrukerServlet extends HttpServlet {
 			stm = connection.createStatement();
 			stm.executeUpdate(sql);
 			connection.close();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			request.setAttribute("feilmelding", "Kunne ikke registrere bruker: " + e.getMessage());
 			e.printStackTrace();
 			ServletUtil.gotoFeilSide(request, response);

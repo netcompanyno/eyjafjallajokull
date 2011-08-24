@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="greyboxBruker">
-		<div class="welcomeMessage">
+		<div id="welcomeMessage">
 			Velkommen,
 			<%=session.getAttribute("navn") %>!
 		</div>

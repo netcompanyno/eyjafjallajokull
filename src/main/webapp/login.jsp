@@ -12,7 +12,10 @@
 	<title>Startside for usikker.no</title>
 	</head>
 	<body>
-		<div align="center" class="greyboxLogin" > 
+	<div align="center" id ="header">
+		Velkommen til usikker.no huskelapper
+	</div>
+		<div align="center" class="greyboxLogin" id="loginBox"> 
 			<form method="POST" action="login">
 				<table class="noborderTable">
 					<tr>

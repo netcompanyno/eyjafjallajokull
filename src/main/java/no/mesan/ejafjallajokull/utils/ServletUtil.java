@@ -26,13 +26,13 @@ public class ServletUtil {
 	public static Connection initializeDBCon() {
 		try {
 			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
+		} catch (Throwable e) {
 			System.out.println("JDBC for SQLITE feil : " + e.getMessage());
 		}
 
 		try {
 			con = DriverManager.getConnection("jdbc:sqlite:src/main/resources/secret.db");
-		} catch (SQLException e) {
+		} catch (Throwable e) {
 			System.out.println("JDBC fikk ikke kontakt med databasen : " + e.getMessage());
 		}
 		return con;
@@ -61,6 +61,7 @@ public class ServletUtil {
 	 */
 	public static void cleanupDBConn(Connection con2) {
 		try {
+			System.out.println("cleanup");
 			con.close();
 		} catch (SQLException e) {
 			System.out.println("Feil ved closing av connection : " + e.getMessage());

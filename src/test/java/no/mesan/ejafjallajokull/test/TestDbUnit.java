@@ -30,7 +30,7 @@ public class TestDbUnit extends DatabaseTestCase {
 	 * Load the data which will be inserted for the test
 	 */
 	protected IDataSet getDataSet() throws Exception {
-		FileInputStream file = new FileInputStream("fulldataset.xml");
+		FileInputStream file = new FileInputStream("src/main/resources/fulldataset.xml");
 		loadedDataSet = new FlatXmlDataSetBuilder().build(file);
 		return loadedDataSet;
 	}
