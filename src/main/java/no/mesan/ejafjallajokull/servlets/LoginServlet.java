@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import no.mesan.ejafjallajokull.pojo.Huskelapp;
 import no.mesan.ejafjallajokull.utils.ServletUtil;
 
@@ -103,14 +105,18 @@ public class LoginServlet extends HttpServlet {
 		if(erAdmin.booleanValue()){
 			SQL = "SELECT * FROM HUSKELAPP H ORDER BY TIMESTAMP DESC";
 		}else{
-			SQL = "SELECT TITTEL, INNHOLD, ERUTFORT, EROFFENTLIG, H.BRUKERNAVN, TIMESTAMP, B.BRUKERNAVN AS BRUKERID FROM HUSKELAPP H, BRUKER B WHERE H.BRUKERNAVN='" + brukerid + "' and BRUKERID='" + brukerid + "' ORDER BY TIMESTAMP DESC";
+			SQL = "SELECT TITTEL, INNHOLD, ERUTFORT, EROFFENTLIG, H.BRUKERNAVN, TIMESTAMP "+//, B.BRUKERNAVN AS BRUKERID " +
+				  "FROM HUSKELAPP H, BRUKER B WHERE H.BRUKERNAVN = B.BRUKERNAVN AND B.BRUKERNAVN='" + brukerid + "' and H.BRUKERNAVN='" + brukerid + 
+				  "' ORDER BY TIMESTAMP DESC";
 		}
 		try {
+			System.out.println(SQL);
 			stm = con.createStatement();
 			rs = stm.executeQuery(SQL);
 			while (rs.next()) {
 				Huskelapp huskelapp = new Huskelapp(rs.getString("tittel"),rs.getString("innhold"),rs.getString("brukernavn"),rs.getLong("timestamp"));
 				huskelappListe.add(huskelapp);
+				System.out.println("h");
 			} 
 		} catch (SQLException e) {
 			 System.out.println("Kunne ikke hente ut huskelapper for bruker : " + e.getMessage());

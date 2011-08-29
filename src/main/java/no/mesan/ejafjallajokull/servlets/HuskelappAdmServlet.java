@@ -2,7 +2,6 @@ package no.mesan.ejafjallajokull.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
@@ -45,8 +44,8 @@ public class HuskelappAdmServlet extends HttpServlet {
 		}
 		// Bruker har laget ny huskelapp og trykket lagre, lagrer...
 		else {
-			String tittel = request.getParameter("tittel").toString();
-			String innhold = request.getParameter("innhold").toString();
+			String tittel = escape(request.getParameter("tittel").toString());
+			String innhold = escape(request.getParameter("innhold").toString());
 			int erOffentlig = ServletUtil.convertCheckBox(request.getParameter("erOffentlig"));
 			dbOperationsOk = lagreHuskelapp(tittel, innhold, erOffentlig, request, response);
 		}
@@ -57,6 +56,11 @@ public class HuskelappAdmServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		ServletUtil.cleanupDBConn(con);
+	}
+	
+	private String escape(String str){
+		return str;
+//		return str==null?null:StringEscapeUtils.escapeHtml4(str);
 	}
 
 	/**
@@ -75,6 +79,7 @@ public class HuskelappAdmServlet extends HttpServlet {
 				+ tittel + "', '" + innhold + "', 0," + erOffentlig + ", '"
 				+ request.getSession().getAttribute("brukernavn").toString() + "', " + new java.util.Date().getTime()
 				+ ")";
+		System.out.println(sql);
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(sql);
