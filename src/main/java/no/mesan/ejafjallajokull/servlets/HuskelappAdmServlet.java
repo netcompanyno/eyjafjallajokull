@@ -2,7 +2,6 @@ package no.mesan.ejafjallajokull.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
@@ -58,6 +57,7 @@ public class HuskelappAdmServlet extends HttpServlet {
 		}
 		ServletUtil.cleanupDBConn(con);
 	}
+	
 
 	/**
 	 * Lagrer ny huskelapp for bruker.
@@ -75,6 +75,7 @@ public class HuskelappAdmServlet extends HttpServlet {
 				+ tittel + "', '" + innhold + "', 0," + erOffentlig + ", '"
 				+ request.getSession().getAttribute("brukernavn").toString() + "', " + new java.util.Date().getTime()
 				+ ")";
+		System.out.println(sql);
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(sql);

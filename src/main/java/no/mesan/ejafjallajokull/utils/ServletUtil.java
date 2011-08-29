@@ -61,7 +61,6 @@ public class ServletUtil {
 	 */
 	public static void cleanupDBConn(Connection con2) {
 		try {
-			System.out.println("cleanup");
 			con.close();
 		} catch (SQLException e) {
 			System.out.println("Feil ved closing av connection : " + e.getMessage());
