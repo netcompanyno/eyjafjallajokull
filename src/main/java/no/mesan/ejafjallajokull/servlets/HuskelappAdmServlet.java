@@ -44,8 +44,8 @@ public class HuskelappAdmServlet extends HttpServlet {
 		}
 		// Bruker har laget ny huskelapp og trykket lagre, lagrer...
 		else {
-			String tittel = escape(request.getParameter("tittel").toString());
-			String innhold = escape(request.getParameter("innhold").toString());
+			String tittel = request.getParameter("tittel").toString();
+			String innhold = request.getParameter("innhold").toString();
 			int erOffentlig = ServletUtil.convertCheckBox(request.getParameter("erOffentlig"));
 			dbOperationsOk = lagreHuskelapp(tittel, innhold, erOffentlig, request, response);
 		}
@@ -58,10 +58,6 @@ public class HuskelappAdmServlet extends HttpServlet {
 		ServletUtil.cleanupDBConn(con);
 	}
 	
-	private String escape(String str){
-		return str;
-//		return str==null?null:StringEscapeUtils.escapeHtml4(str);
-	}
 
 	/**
 	 * Lagrer ny huskelapp for bruker.
