@@ -34,7 +34,7 @@ public class NyBrukerServlet extends HttpServlet {
 		String brukerid = request.getParameter("brukerid");
 		String passord = request.getParameter("passord");
 		
-		String sql = "INSERT INTO bruker VALUES('" + navn + "', '" + brukerid + "', '" + passord + "', '" + 0 + "')";
+		String sql = "INSERT INTO bruker VALUES('" + brukerid + "', '" + passord + "', '" + navn + "', '" + 0 + "')";
 		System.out.println(sql);
 		Connection con = null;
 		try {
