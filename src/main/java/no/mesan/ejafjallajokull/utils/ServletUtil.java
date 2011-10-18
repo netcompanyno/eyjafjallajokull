@@ -47,9 +47,9 @@ public class ServletUtil {
 	 */
 	public static void cleanupDBConn(ResultSet rs, Connection con) {
 		try {
-			rs.close();
-			con.close();
-		} catch (SQLException e) {
+			if (rs != null) rs.close();
+			if (con != null) con.close();
+		} catch (Throwable e) {
 			System.out.println("Feil ved closing av connection og resultset : " + e.getMessage());
 		}
 	}
@@ -62,7 +62,7 @@ public class ServletUtil {
 	public static void cleanupDBConn(Connection con2) {
 		try {
 			con.close();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("Feil ved closing av connection : " + e.getMessage());
 		}
 	}
@@ -98,5 +98,32 @@ public class ServletUtil {
 			return 1;
 		}
 		return 0;
+	}
+	
+	
+	public static void beginTransaction(Connection con) throws SQLException {
+		con.setAutoCommit(false);
+	}
+	
+	public static void endTransaction(Connection con) throws SQLException {
+		con.commit();
+	}
+	
+	
+	public static void rollbackTransaction(Connection con) {
+		try {
+			con.rollback();
+		} catch (SQLException e) {
+			System.out.println("Feil ved rollback: " + e.getMessage());
+		}
+	}
+	
+	public static void cleanupTransaction(Connection con)  {
+		try {
+			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			System.out.println("Feil ved resetting av connection til autocommit : " + e.getMessage());
+		}
+		
 	}
 }

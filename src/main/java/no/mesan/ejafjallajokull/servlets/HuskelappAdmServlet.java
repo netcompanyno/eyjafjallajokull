@@ -17,15 +17,12 @@ import no.mesan.ejafjallajokull.utils.ServletUtil;
  */
 public class HuskelappAdmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Connection con = null;;
-	private Statement stm;
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public HuskelappAdmServlet() {
 		super();
-		con = ServletUtil.initializeDBCon();
 	}
 
 	/**
@@ -55,7 +52,7 @@ public class HuskelappAdmServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 			dispatcher.forward(request, response);
 		}
-		ServletUtil.cleanupDBConn(con);
+
 	}
 	
 
@@ -76,16 +73,23 @@ public class HuskelappAdmServlet extends HttpServlet {
 				+ request.getSession().getAttribute("brukernavn").toString() + "', " + new java.util.Date().getTime()
 				+ ")";
 		System.out.println(sql);
+		Connection con = null;;
 		try {
-			stm = con.createStatement();
+			con = ServletUtil.initializeDBCon();		
+			ServletUtil.beginTransaction(con);
+			Statement stm = con.createStatement();
 			stm.executeUpdate(sql);
-			
+			ServletUtil.endTransaction(con);
 		} catch (Throwable e) {
+			ServletUtil.rollbackTransaction(con);
 			e.printStackTrace();
 			request.setAttribute("feilmelding", "Kunne ikke sette inn huskelapp : " + e.getMessage());
 			ServletUtil.gotoFeilSide(request, response);
 			return false;
-		} 
+		}  finally {
+			ServletUtil.cleanupTransaction(con);
+			ServletUtil.cleanupDBConn(con);
+		}
 		return true;
 	}
 
@@ -102,14 +106,20 @@ public class HuskelappAdmServlet extends HttpServlet {
 			HttpServletResponse response) {
 		String SQL = "DELETE FROM HUSKELAPP WHERE TITTEL='" + tittel + "' AND brukernavn='" + brukernavn
 				+ "' AND timestamp=" + new Long(timestamp).longValue();
+		Connection con = null;
 		try {
-			stm = con.createStatement();
+			con = ServletUtil.initializeDBCon();		
+			ServletUtil.beginTransaction(con);
+			Statement stm = con.createStatement();
 			stm.executeUpdate(SQL);
+			ServletUtil.endTransaction(con);
 		} catch (Exception e) {
+			ServletUtil.rollbackTransaction(con);
 			request.setAttribute("feilmelding", "Kunne ikke slette huskelapp : " + e.getMessage());
 			ServletUtil.gotoFeilSide(request, response);
 			return false;
 		} finally{
+			ServletUtil.cleanupTransaction(con);
 			ServletUtil.cleanupDBConn(con);
 		}
 		return true;

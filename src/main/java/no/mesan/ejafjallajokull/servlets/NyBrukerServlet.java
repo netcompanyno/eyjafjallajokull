@@ -1,10 +1,7 @@
 package no.mesan.ejafjallajokull.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
@@ -18,12 +15,7 @@ import no.mesan.ejafjallajokull.utils.ServletUtil;
 @SuppressWarnings("serial")
 public class NyBrukerServlet extends HttpServlet {
 
-	private Connection connection;
-	private Statement stm;
-	private ResultSet rs;
-
 	public NyBrukerServlet() {
-		connection = ServletUtil.initializeDBCon();
 	}
 
 	@Override
@@ -44,19 +36,25 @@ public class NyBrukerServlet extends HttpServlet {
 		
 		String sql = "INSERT INTO bruker VALUES('" + navn + "', '" + brukerid + "', '" + passord + "', '" + 0 + "')";
 		System.out.println(sql);
+		Connection con = null;
 		try {
-			stm = connection.createStatement();
+			con = ServletUtil.initializeDBCon();
+			ServletUtil.beginTransaction(con);
+			Statement  stm = con.createStatement();
 			stm.executeUpdate(sql);
-			connection.close();
+			ServletUtil.endTransaction(con);
 		} catch (Exception e) {
+			ServletUtil.rollbackTransaction(con);
 			request.setAttribute("feilmelding", "Kunne ikke registrere bruker: " + e.getMessage());
 			e.printStackTrace();
 			ServletUtil.gotoFeilSide(request, response);
+		} finally {
+			ServletUtil.cleanupTransaction(con);
+			ServletUtil.cleanupDBConn(con);
 		}
 		String nextJSP = "/index.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		dispatcher.forward(request, response);
-		ServletUtil.cleanupDBConn(rs, connection);
 		
 	}
 }
